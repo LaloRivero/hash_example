@@ -8,11 +8,16 @@ from flask_pymongo import pymongo
 
 # Local config
 from app import create_app
+from app.form import SignInForm, SignUpForm
 import dbconfig
 
 app = create_app()
 
 
 @app.route('/')
-def hola():
-    return 'Hola'
+def signin():
+    data_form = SignInForm()
+    context = {
+        'data_form': data_form
+    }
+    return render_template('signin.html', **context)
