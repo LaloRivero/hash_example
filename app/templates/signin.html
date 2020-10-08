@@ -2,17 +2,18 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block title %}
+    {{title}}
     {{ super() }}
-    Sign in
 {% endblock title %}
 
 {% block content %}
     <div class="container">
+        <h1>{{title}}</h1>
         {{wtf.quick_form(data_form)}}
     </div>
     <div class="container mt-5" style='margin-top: 25px;'>
         <h3>Don't have an account?</h3>
-        <a href="{{url_for('signin')}}"
+        <a href="{{url_for('signup')}}"
            class= "btn btn-success btn-m active"
            role="button" aria-pressed="True"
            >Sing Up</a>
